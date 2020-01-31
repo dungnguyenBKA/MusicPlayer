@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+    <TextView
+        android:id="@+id/_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:padding="20dp"
+        android:text="Your Music"
+        android:textSize="25sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_music"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/play_area"
+        android:layout_below="@+id/_title"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/single_song_layout" />
+
+    <LinearLayout
+        android:id="@+id/play_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/curve_rec">
+
+        <ImageView
+            android:id="@+id/song_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"/>
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/song_name"
+                android:textColor="#FFF"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:scrollHorizontally="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit ="marquee_forever"
+                android:layout_height="wrap_content"
+                android:text="Unknown" />
+
+            <TextView
+                android:id="@+id/artist_name"
+                android:textColor="#FFF"
+                android:singleLine="true"
+                android:scrollHorizontally="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit ="marquee_forever"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unknown" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/skip_previous"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_toStartOf="@id/play_pause"
+                android:layout_toLeftOf="@id/play_pause"
+                android:clickable="true"
+                android:focusable="true"
+                android:scaleX="2"
+                android:scaleY="2"
+                android:src="@drawable/ic_skip_previous" />
+
+            <ImageView
+                android:id="@+id/play_pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_toStartOf="@id/skip_next"
+                android:layout_toLeftOf="@id/skip_next"
+                android:clickable="true"
+                android:focusable="true"
+                android:scaleX="2"
+                android:scaleY="2"
+                android:src="@drawable/ic_play" />
+
+            <ImageView
+                android:id="@+id/skip_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_margin="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:scaleX="2"
+                android:scaleY="2"
+                android:src="@drawable/ic_skip_next" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
